@@ -37,7 +37,7 @@ void loop() {
     temp = -100;
   }
 
-  // reading sunlight intensity (divide by 1023=max)
+  // reading sunlight intensity (bigger the value the darker)
   int sunlight = analogRead(SUN_AO_PIN);
 
   Serial.print("Humidity: ");
@@ -45,6 +45,5 @@ void loop() {
   Serial.print(" %  |  Temperature: ");
   Serial.print(temp);
   Serial.print(" *C  |  Sunlight: ");
-  Serial.print(sunlight);
-  Serial.println(" %");
+  Serial.println(sunlight);
 }
