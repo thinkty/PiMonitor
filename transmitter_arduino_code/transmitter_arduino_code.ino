@@ -45,7 +45,7 @@ void loop() {
   Serial.print(humidity);
   Serial.print(" %  |  Temperature: ");
   Serial.print(temp);
-  Serial.print(" *C  |  Sunlight: ");
+  Serial.print(" *C  |  Light: ");
   if (sunlight < SUN_POINT) {
     Serial.println("1");
   } else {
