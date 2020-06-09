@@ -3,7 +3,6 @@
 #define BIT_PER_SEC 9600
 #define DHT_TYPE    DHT22 // AM2302
 #define DHT_PIN     2     // PWM for temperature/humidity
-#define SUN_DO_PIN  3     // PWM for sunlight digital output
 #define SUN_AO_PIN  0     // for sunlight analog output
 #define SUN_POINT   500   // point between day and night
 #define M_TIME      2000  // seconds between each measurement
@@ -14,11 +13,7 @@ DHT dht(DHT_PIN, DHT_TYPE);
 void setup() {
 
   Serial.begin(BIT_PER_SEC);
-  
   dht.begin();
-  
-  // getting output of sunlight from SUN_DO_PIN
-  pinMode(SUN_DO_PIN, OUTPUT);
 }
 
 void loop() {
@@ -46,9 +41,5 @@ void loop() {
   Serial.print(" %  |  Temperature: ");
   Serial.print(temp);
   Serial.print(" *C  |  Light: ");
-  if (sunlight < SUN_POINT) {
-    Serial.println("1");
-  } else {
-    Serial.println("0");
-  }
+  Serial.println(sunlight);
 }
